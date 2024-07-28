@@ -1,5 +1,6 @@
 class NotesModel {
   String title;
+  String highlight;
   String description1;
   String? description2;
   DateTime createdAt;
@@ -9,6 +10,7 @@ class NotesModel {
 
   NotesModel({
     required this.title,
+    required this.highlight,
     required this.description1,
     this.description2,
     required this.createdAt,

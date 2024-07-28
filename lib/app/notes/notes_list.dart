@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_assignment/app/notes/note_detail.dart';
 
-import '../../common/constants/notes_list.dart';
+import '../../common/constants/notes_data.dart';
 
 class NotesList extends StatefulWidget {
   const NotesList({super.key});
@@ -19,62 +20,71 @@ class _NotesList extends State<NotesList> {
           padding: const EdgeInsets.all(8),
           itemCount: notesList.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: const EdgeInsets.only(top: 10),
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.white),
-                color: Colors.white,
+            return InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NoteDetail(note: notesList[index]),
+                ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        notesList[index].title,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Image.asset(
-                        notesList[index].isFavorite
-                            ? 'assets/images/icons/favorite.png'
-                            : 'assets/images/icons/not-favorite.png',
-                        width: 20,
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                  Text(
-                    notesList[index].description1,
-                    style: const TextStyle(
-                      fontSize: 12,
-                    ),
-                  ),
-                  notesList[index].description2 != null
-                      ? Text(
-                          notesList[index].description2!,
+              child: Container(
+                margin: const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.white),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          notesList[index].title,
                           style: const TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
                           ),
-                        )
-                      : Container(),
-                  notesList[index].isSeeMore
-                      ? const Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(
-                            'See more..',
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
-                          ),
-                        )
-                      : Container()
-                ],
+                        ),
+                        Image.asset(
+                          notesList[index].isFavorite
+                              ? 'assets/images/icons/favorite.png'
+                              : 'assets/images/icons/not-favorite.png',
+                          width: 20,
+                          height: 20,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      notesList[index].highlight,
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                    notesList[index].description2 != null
+                        ? Text(
+                            notesList[index].highlight!,
+                            style: const TextStyle(
+                              fontSize: 12,
+                            ),
+                          )
+                        : Container(),
+                    notesList[index].isSeeMore
+                        ? const Align(
+                            alignment: Alignment.bottomRight,
+                            child: Text(
+                              'See more..',
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.grey),
+                            ),
+                          )
+                        : Container()
+                  ],
+                ),
               ),
             );
           },
