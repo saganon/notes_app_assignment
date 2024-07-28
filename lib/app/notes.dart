@@ -47,7 +47,6 @@ class Notes extends StatelessWidget {
           ),
           height: 30,
           width: 150,
-          transform: Matrix4.translationValues(0.0, 0.0, 0.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.orange.shade800),
