@@ -6,7 +6,7 @@ final notes1 = NotesModel(
   description1:
       r""" <h2><span style='color: white;'>Chapter 1 - Introductions</span></h2>
       <p style="text-align: justify;"><span style='color: white;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
-      <p style="text-align: justify;"><span style="color: rgba(239,108,0,1);">Fames ac turpis egestas integer eget aliquet nibh praesent.</span></p>
+      <p class="bold-text" style="text-align: justify;"><span style="color: rgba(239,108,0,1);">Fames ac turpis egestas integer eget aliquet nibh praesent.</span></p>
       <img src='asset:assets/images/example-image.png' /> 
       <p style="text-align: justify;"><span style='color: white;'>Vivamus at augue eget arcu dictum varius duis at. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna.</span></p>
       <p class="bold-text" style="text-align: justify;"><span style='color: white;'>Ut lectus arcu bibendum at varius vel pharetra vel turpis.</span></p>
@@ -26,7 +26,7 @@ final notes2 = NotesModel(
   description1:
       r""" <h2><span style='color: white;'>Chapter 1 - Introductions</span></h2>
       <p style="text-align: justify;"><span style='color: white;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
-      <p style="text-align: justify;"><span style="color: rgba(239,108,0,1);">Fames ac turpis egestas integer eget aliquet nibh praesent.</span></p>
+      <p class="bold-text" style="text-align: justify;"><span style="color: rgba(239,108,0,1);">Fames ac turpis egestas integer eget aliquet nibh praesent.</span></p>
       <img src='asset:assets/images/example-image.png' /> 
       <p style="text-align: justify;"><span style='color: white;'>Vivamus at augue eget arcu dictum varius duis at. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna.</span></p>
       <p class="bold-text" style="text-align: justify;"><span style='color: white;'>Ut lectus arcu bibendum at varius vel pharetra vel turpis.</span></p>
@@ -46,7 +46,7 @@ final notes3 = NotesModel(
   description1:
       r""" <h2><span style='color: white;'>Chapter 1 - Introductions</span></h2>
       <p style="text-align: justify;"><span style='color: white;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
-      <p style="text-align: justify;"><span style="color: rgba(239,108,0,1);">Fames ac turpis egestas integer eget aliquet nibh praesent.</span></p>
+      <p class="bold-text" style="text-align: justify;"><span style="color: rgba(239,108,0,1);">Fames ac turpis egestas integer eget aliquet nibh praesent.</span></p>
       <img src='asset:assets/images/example-image.png' /> 
       <p style="text-align: justify;"><span style='color: white;'>Vivamus at augue eget arcu dictum varius duis at. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna.</span></p>
       <p class="bold-text" style="text-align: justify;"><span style='color: white;'>Ut lectus arcu bibendum at varius vel pharetra vel turpis.</span></p>
