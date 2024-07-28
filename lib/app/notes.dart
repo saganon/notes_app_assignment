@@ -18,21 +18,65 @@ class Notes extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _goToGoogleTask(context),
-          Container(
-            margin: const EdgeInsets.only(
-              top: 20.0,
-            ),
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Colors.orange.shade800,
-                  width: 2,
-                ),
+          _goToCreateNote(),
+        ],
+      ),
+    );
+  }
+
+  Widget _goToCreateNote() {
+    return Stack(
+      alignment: Alignment.topCenter,
+      children: [
+        Container(
+          margin: const EdgeInsets.only(
+            top: 30.0,
+          ),
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Colors.orange.shade800,
+                width: 2,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(
+            top: 15.0,
+          ),
+          height: 30,
+          width: 150,
+          transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.orange.shade800),
+            color: Colors.orange.shade800,
+          ),
+          child: InkWell(
+            onTap: () => {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'Add New Note',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 5),
+                  child: Image.asset(
+                    'assets/images/icons/add-note.png',
+                    color: Colors.white,
+                    width: 12,
+                    height: 18,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
