@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_assignment/app/notes/notes_list.dart';
 
 class Notes extends StatelessWidget {
   const Notes({super.key});
@@ -19,6 +20,7 @@ class Notes extends StatelessWidget {
         children: [
           _goToGoogleTask(context),
           _goToCreateNote(),
+          const NotesList(),
         ],
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_assignment/app/notes.dart';
+import 'package:notes_app_assignment/app/notes/notes.dart';
+
+import 'app/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       bottomNavigationBar: navigationBar(),
       body: <Widget>[
         /// Home page
-        const Text('data'),
+        const Home(),
 
         /// Notes page
         const Notes(),
