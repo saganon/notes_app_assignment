@@ -15,6 +15,23 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int currentPageIndex = 0;
 
+  final _selectedItemColor = Colors.white;
+  final _unselectedItemColor = Colors.orange.shade800;
+  final _selectedBgColor = Colors.orange.shade800;
+  final _unselectedBgColor = Colors.black;
+
+  Color _getBgColor(int index) =>
+      currentPageIndex == index ? _selectedBgColor : _unselectedBgColor;
+
+  Color _getItemColor(int index) =>
+      currentPageIndex == index ? _selectedItemColor : _unselectedItemColor;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      currentPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,44 +52,65 @@ class _MyAppState extends State<MyApp> {
 
         /// Account page
         const Text('Hello'),
+
+        /// Settings page
+        const Text('Hello'),
       ][currentPageIndex],
     );
   }
 
   Widget navigationBar() {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: Colors.amber,
-            width: 0.3,
+            color: Colors.orange.shade800,
+            width: 2,
           ),
         ),
       ),
-      child: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: Colors.amber,
-        backgroundColor: Colors.black,
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
+      child: BottomNavigationBar(
+        selectedFontSize: 0,
+        selectedItemColor: _selectedItemColor,
+        unselectedItemColor: _unselectedItemColor,
+        currentIndex: currentPageIndex,
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: _buildIcon('assets/images/icons/home.png', 0, 'Home'),
+            label: '',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.notes),
-            label: 'Notes',
+          BottomNavigationBarItem(
+            icon: _buildIcon('assets/images/icons/notes.png', 1, 'Notes'),
+            label: '',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.person),
-            label: 'Account',
+          BottomNavigationBarItem(
+            icon: _buildIcon('assets/images/icons/account.png', 2, 'Account'),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildIcon('assets/images/icons/settings.png', 3, 'Account'),
+            label: '',
           ),
         ],
       ),
     );
   }
+
+  Widget _buildIcon(String image, int index, String text) => Container(
+        width: double.infinity,
+        height: kBottomNavigationBarHeight,
+        child: Material(
+          color: _getBgColor(index),
+          child: IconButton(
+            color: _getItemColor(index),
+            padding: const EdgeInsets.all(12),
+            icon: Image.asset(
+              image,
+              color: _getItemColor(index),
+            ),
+            onPressed: () => _onItemTapped(index),
+          ),
+        ),
+      );
 }
